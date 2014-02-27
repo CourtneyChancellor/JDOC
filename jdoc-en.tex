@@ -1,0 +1,179 @@
+\documentclass[en]{jdoc}
+
+\usepackage[charter]{mathdesign}
+
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref} % hypertext links in color
+
+\ed{PRES LUNAM\\École Doctorale STIM\\Sciences et Technologies de\\l'Information et Mathématiques}
+\spec{Specialty}
+\labo{Lab}
+\equipe{Team}
+
+\title{Information and formatting of JDOC articles}
+\author{Author’s name}
+\email{first.last@lab-city.edu}
+
+\begin{document}
+
+\makehead % builds header (ed, specialty, labo, title, author, ...).
+
+\begin{abstract}
+  This paragraph lists the constraints you have to follow when write
+  an abstract for the Annual Day of ED STIM.  It also gives you an
+  illustration of the set visual style.  \textbf{In addition to your
+    article, you must write an abstract of your research work.  Your
+    abstract must be between 800 and 1500 characters, or between 8 to
+    15 lines.  All submitted abstracts will be consolidated into the
+    Handbook of Abstracts}.  The abstract’s content must be as
+  accessible as possible.  The JDOC organizing committee reminds you
+  to strictly follow these length constraints, and to submit your
+  abstract along with your article before the due date.
+\end{abstract}
+
+\begin{keywords}
+Must be italicized, JDOC, format, size, page layout, dates.
+\end{keywords}
+
+\begin{collaborations}
+Academic research organisms, industry partners, work groups.
+\end{collaborations}
+
+\section{JDOC}
+All articles submitted to JDOC will be read by members of the
+organizing committee.  Students can volunteer to do an oral
+presentation, but JDOC committee will ultimately decide who gets a
+spot, depending on the submitted articles.  All articles will be
+gathered into proceedings, which you will receive on the day of the
+conference.  The goal of these proceedings is to widen the knowledge
+of PhD students by getting them to discover and understand what
+happens in other domains of the ED STIM.  Therefore, each article must
+present a student’s work with a focus on accessibility.
+
+\subsection{Technical information}
+Your article must be laid out on A4 paper, in one column, and a
+maximum length of four pages (including figures, tables and
+references).  It must be written in French or English (mind your
+spelling).
+
+The article must contain: an abstract (15 lines long at most),
+keywords, a content, a conclusion and bibliographical references.  The
+following must also appear in the header: doctoral school, doctoral
+specialty\footnote{As a reminder, the doctoral specialties of ED STIM
+  are: Automatique, Robotique, Traitement du Signal ; Mathématiques ;
+  Informatique ; Systèmes Électroniques et de Télécommunications,
+  Génie Électrique ; Systèmes de Production.}, lab and research team,
+and your name.
+
+\subsection{Deadline}
+We will not accept any article submitted after the paper submission
+deadline.  If you know you will have difficulties meeting the
+deadline, please contact us beforehand at \url{jdoc@univ-nantes.fr}.
+
+\subsection{File name}
+Your submitted article must be named in the following fashion:
+“\textit{name}\_\textit{lab}\_papier.pdf”, where
+%
+\begin{description}
+\item \textit{name}: your name
+\item \textit{lab}: acronym of your lab
+\end{description}
+%
+Example: “DUPONT\_IRCCyN\_papier.pdf”.
+
+\section{Article layout with \LaTeX{}}
+\LaTeX{} users should use the file “jdoc.cls” to comply with the JDOC
+submission instructions; no extra effort required.  New commands are
+defined to simplify formatting your article.  This file defines a new
+document class \LaTeXe{} that you must include in your document.
+
+\subsection{How to include the JDOC document class}
+%
+\begin{enumerate}
+\item Copy the file “jdoc.cls” into the directory containing your
+  “.tex” article.
+\item Include the \verb|jdoc| class like so:
+%
+\begin{verbatim}
+\documentclass[options]{jdoc}
+\begin{document}
+...
+\end{document}
+\end{verbatim}
+%
+The optional parameter \verb|options| can take the usual values
+(\verb|a4paper|, \verb|10pt|, \dots). Depending on the language you
+want to write your article in (English or French), you should add
+\verb|en| or \verb|fr|.  For instance:\\
+
+\verb|\documentclass[en]{jdoc}| $\Longrightarrow$
+\framebox{{\small {\bf Abstract:} blather .., {\bf Keywords:} blather ..}}\\
+
+\verb|\documentclass[fr]{jdoc}| $\Longrightarrow$
+\framebox{{\small {\bf Résumé~:} blather .., {\bf Mots clés~: } blather ..}} \\
+
+\end{enumerate}
+
+\subsection{Additional commands provided by the jdoc class}
+The additional commands to simplify writing your article are:
+
+\begin{verbatim}
+\ed{..}                              % name of the doctoral school
+\spec{..}                            % specialty
+\labo{..}                            % lab
+\equipe{..}                          % research team
+\title{..}                           % article title
+\author{..}                          % your name
+\email{..}                           % your email address
+
+\makehead                            % prints the header (ed, spec,
+                                     % lab, author, title, ...)
+\begin{abstract}...\end{abstract}
+\begin{keywords}...\end{keywords}
+\end{verbatim}
+
+\subsection{Preloaded packages}
+The following packages are loaded by the jdoc document class:
+%
+\begin{verbatim}
+\usepackage{amsmath,amsfonts}           % typeset math formulas
+\usepackage{mathrsfs,amssymb}           % extra math symbols
+\usepackage[utf8]{inputenc}             % accented characters (é,â,..)
+\usepackage[T1]{fontenc}                % accented characters (é,â,..)
+\usepackage{graphicx}                   % inclusion of images
+\usepackage{multicol}                   % multi-column support
+\usepackage{color}                      % colored text
+\usepackage[french]{babel}              % for writing in French
+\usepackage[english]{babel}             % or if we write in English
+\end{verbatim}
+%
+For additional information on \LaTeXe{}, consult \cite{Oet06}.
+
+\section{Section breakdown}
+\begin{itemize}
+\item The abstract must follow the one in this document; no longer than
+  \textbf{15 lines}.
+
+\item Keywords must be italicized.
+
+\item Recall that your article will be read by PhD students from other
+  domains.  You must thrive to be the as accessible as possible,
+  without losing the scientific fabric of your work.  Use images with
+  parsimony.
+
+\item Bibliographical references will be listed in the order they
+  appear in the article.  They will appear numbered like so:
+  \cite{Oet06}\cite{Mau84}\cite{max82}, etc.
+
+\end{itemize}
+
+\bibliography{biblio-en}
+
+%Ou utiliser bibitem
+%\begin{thebibliography}{3}
+%   \bibitem[1]{Mau84} J.R. MAUTZ and R.F. HARRINGTON, "An E-Field solution for a conducting surface small or comparable to the wavelength", IEEE Trans.  AP, vol.  32, pp.  330-339, 1984.
+%   \bibitem[2]{max82} J.CLERCK MAXWELL, Atreatise on Electricity and Magnetism, 3rd ed., vol.  2. Oxford : Clarendon, 1982.
+%   \bibitem[3]{Oet06} TOBIAS OETIKER {\it et al.}, "Une courte introduction à \LaTeXe{}", disponible à l'adresse
+   %\emph{\href{http://www.ctan.org/tex-archive/info/lshort/french/flshort-3.20.pdf}{http://www.ctan.org/tex-archive/info/lshort/french/flshort-3.20.pdf}}.
+%\end{thebibliography}
+
+\end{document}
